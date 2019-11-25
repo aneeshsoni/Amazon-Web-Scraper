@@ -9,14 +9,14 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from twilio.rest import Client
 
-headers = {"User-Agent": 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Safari/605.1.15'}
+headers = {"User-Agent": 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15'}
 
 class Product:
     def __init__(self):
         self.desired_price = 900
         self.name = ''
         self.price = int()
-        self.URL = 'https://www.amazon.com/Tamron-28-75mm-Mirrorless-Limited-Warranty/dp/B07CSLM1X8/ref=sr_1_2?keywords=tamron+28-75&qid=1569796120&s=gateway&sr=8-2'
+        self.URL = 'https://www.amazon.com/Tamron-28-75mm-Mirrorless-Limited-Warranty/dp/B07CSLM1X8'
 
     def set_price(self, price):
         self.price = price
@@ -30,24 +30,6 @@ def create_message(sender, to, subject, message_text):
     message['from'] = sender
     message['subject'] = subject
     return {'raw': base64.urlsafe_b64encode(message.as_string())}
-
-def create_draft(service, user_id, message_body):
-    # creates and inserts a draft email.
-    # service: an authorized Gmail API service instance.
-    # user_id: User's email address. To indicate the authenticated user, the special value "me" can be used.
-    # message_body: The body of the email message with headers."
-
-    try:
-        message = {'message': message_body}
-        draft = service.users().drafts().create(userId=user_id, body=message).execute()
-        # prints the returned draft's message and id
-        print('Draft id: %s\nDraft message: %s'), (draft['id'], draft['message'])
-
-        # Returns draft object, including draft id and message metadata.
-        return draft
-    except errors.HttpError as error:
-        print('An error occurred: %s'), error
-        return None
 
 def send_message(service, user_id, message):
     # service: an authorized Gmail API service instance.
