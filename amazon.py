@@ -2,8 +2,9 @@ from __future__ import print_function
 import requests
 from bs4 import BeautifulSoup
 import pickle
-import os.path
 import os
+from dotenv import load_dotenv
+from pathlib import Path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -46,7 +47,12 @@ def send_message(service, user_id, message):
 def send_email(price, desired_price, product):
     print('Price lower than desired')
 
+def set_path():
+    env_path = Path('./Twilio.env')
+    load_dotenv(dotenv_path=env_path)
+
 def send_text(message_body):
+    set_path()
     account_sid = os.environ['TWILIO_ACCOUNT_SID']
     auth_token = os.environ['TWILIO_AUTH_TOKEN']
 
