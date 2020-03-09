@@ -14,7 +14,7 @@ headers = {"User-Agent": 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleW
 
 class Product:
     def __init__(self):
-        self.desired_price = 900
+        self.desired_price = 901
         self.name = ''
         self.price = int()
         self.URL = 'https://www.amazon.com/Tamron-28-75mm-Mirrorless-Limited-Warranty/dp/B07CSLM1X8'
