@@ -9,12 +9,13 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from twilio.rest import Client
+import dateutil
 
 headers = {"User-Agent": 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15'}
 
 class Product:
     def __init__(self):
-        self.desired_price = 902
+        self.desired_price = 900
         self.name = ''
         self.price = int()
         self.URL = 'https://www.amazon.com/Tamron-28-75mm-Mirrorless-Limited-Warranty/dp/B07CSLM1X8'
