@@ -4,9 +4,9 @@ This tool identifies the current price of a product of interest and sends a text
 
 ## Inputs
 
-1. User Agent: Identify and set the user agent for your browser. Google "My User Agent" and edit that on line 12
-2. Desired Price: Set the price you want to be notified for on line 16
-3. Insert Amazon URL on line 19
+1. User Agent: Identify and set the user agent for your browser. Google "My User Agent" and edit that on line 13
+2. Desired Price: Set the price you want to be notified for on line 17
+3. Insert Amazon URL on line 20
 
 ## Sending Messages
 
